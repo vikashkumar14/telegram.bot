@@ -1,0 +1,12 @@
+# railway.yml
+build:
+  baseImage: python:3.11  # Python वर्जन सेट करें
+  install:
+    - pip install -r requirements.txt  # सभी dependencies इंस्टॉल करें
+  start: python bot.py  # बॉट स्टार्ट करने का कमांड
+
+deploy:
+  restartPolicy: always  # Auto-restart on failure
+  watchPaths:  # सिर्फ इन फाइलों में बदलाव होने पर redeploy करें
+    - bot.py
+    - requirements.txt
